@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeux Anniversaire Elisa!</title>
+    <style>
+        @keyframes backgroundChange {
+            0% { background-color: #ff0000; }
+            25% { background-color: #00ff00; }
+            50% { background-color: #0000ff; }
+            75% { background-color: #ff00ff; }
+            100% { background-color: #ff0000; }
+        }
+
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            animation: backgroundChange 10s infinite;
+        }
+        .mosaique {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+            padding: 10px;
+        }
+        .mosaique img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px; /* Arrondit les coins des images */
+        }
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f0f;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Joyeux Anniversaire Elisa!</h1>
+    <div class="elephants">
+        <img src="https://i.makeagif.com/media/9-27-2017/LROPsC.gif" alt="Éléphants dansant">
+    </div>
+    <div class="mosaique">
+        <img src="https://i.makeagif.com/media/9-27-2017/LROPsC.gif" alt="Description de l'image 1">
+        <img src="https://i.makeagif.com/media/9-27-2017/LROPsC.gif" alt="Description de l'image 2">
+        <img src="https://i.makeagif.com/media/9-27-2017/LROPsC.gif" alt="Description de l'image 3">
+        <!-- Ajoutez autant d'images que vous le souhaitez ici -->
+    </div>
+    <!-- Musique d'anniversaire -->
+<audio autoplay loop controls>
+    <source src="file:///C:/Users/damie/Downloads/Rick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20(Official%20Music%20Video).mp3" type="audio/mpeg">
+    Votre navigateur ne prend pas en charge l'élément audio.
+</audio>
+    <script>
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.animationDuration = Math.random() * 2 + 3 + 's';
+            confetti.style.opacity = Math.random();
+            confetti.style.backgroundColor = `hsla(${Math.random() * 360}, 100%, 50%, 0.8)`;
+        
+            confetti.style.animationName = 'fall';
+            confetti.style.animationTimingFunction = 'linear';
+        
+            document.body.appendChild(confetti);
+        
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+        
+        const style = document.createElement('style');
+        style.innerHTML = `
+        @keyframes fall {
+            0% { top: -10%; }
+            100% { top: 110%; }
+        }
+        `;
+        document.head.appendChild(style);
+        
+        setInterval(createConfetti, 100);
+    </script>
+</body>
+</html>
