@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeux Anniversaire Elisa!</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .elephants {
+            /* https://i.pinimg.com/originals/6d/96/1a/6d961a68b73b5fced4aac4f0ec67035e.gif */
+        }
+        .confetti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background-color: #f0f;
+        z-index: 1;
+    }
+    </style>
+</head>
+<body>
+    <h1>Joyeux Anniversaire Elisa!</h1>
+    <div class="elephants">
+        <!-- https://i.pinimg.com/originals/6d/96/1a/6d961a68b73b5fced4aac4f0ec67035e.gif -->
+        <img src="elephant_dancing.gif" alt="https://i.pinimg.com/originals/6d/96/1a/6d961a68b73b5fced4aac4f0ec67035e.gif ">
+    </div>
+    <script>
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.animationDuration = Math.random() * 2 + 3 + 's'; // Durée entre 3 et 5 secondes
+            confetti.style.opacity = Math.random();
+            confetti.style.backgroundColor = `hsla(${Math.random() * 360}, 100%, 50%, 0.8)`;
+        
+            // Animation de chute
+            confetti.style.animationName = 'fall';
+            confetti.style.animationTimingFunction = 'linear';
+        
+            document.body.appendChild(confetti);
+        
+            // Supprimer le confetti après qu'il tombe
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000); // Correspond à la durée maximale de l'animation
+        }
+        
+        // Ajoute l'animation de chute
+        const style = document.createElement('style');
+        style.innerHTML = `
+        @keyframes fall {
+            0% { top: -10%; }
+            100% { top: 110%; }
+        }
+        `;
+        document.head.appendChild(style);
+        
+        // Générer des confettis toutes les 100 millisecondes
+        setInterval(createConfetti, 100);
+        </script>
+</body>
+</html>
